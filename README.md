@@ -1,15 +1,25 @@
 # palabra.
 
-Juego de cinco letras en español, sin dependencias de ejecución. Requiere Node.js 22 o superior.
+Wordle en español para móvil y escritorio. Node.js 22 o superior; sin dependencias de ejecución.
 
 ```sh
 npm start
+npm test
+npm run build
 ```
 
-Sirve la aplicación en el puerto 3000 (configurable con `PORT`). Ejecuta `npm test` para validar las pistas y el calendario diario. Incluye reto diario con horario de Madrid, modo libre, guardado local, estadísticas, modo exigente, alto contraste y resultados para compartir.
+El servidor escucha en el puerto 3000 (`PORT` configurable). `dist/` contiene la versión estática.
 
-El diccionario es una selección local limitada y las 25 soluciones diarias rotan de forma determinista. No hay cuentas ni sincronización entre dispositivos. Antes de un lanzamiento público conviene ampliar y revisar el diccionario, incorporar un banco de soluciones mayor y realizar pruebas con usuarios y lectores de pantalla.
+- 432 soluciones y más de 900 palabras admitidas, con Ñ y normalización de tildes.
+- Reto diario compartido que cambia a medianoche de Madrid. Desde el 18 de noviembre de 2026, cada ciclo recorre las 432 soluciones sin repeticiones. Las partidas del día anterior se mantienen compatibles.
+- Modo libre con historial reciente para evitar repeticiones, confirmación al abandonar y opción de seguir jugando tras el resultado.
+- Modo exigente con posiciones y cantidades de letras obligatorias. Se elige antes del primer intento.
+- Tema claro y oscuro, alto contraste, movimiento reducido y sonidos opcionales.
+- Estadísticas locales, racha diaria, mejor racha y distribución de intentos. Las estadísticas previas se conservan; la distribución empieza con esta versión.
+- Compartir con el menú del móvil o el portapapeles, sin mostrar la solución.
+
+No hay cuentas ni sincronización. El diccionario es una selección local, no un diccionario exhaustivo del español. Los datos dependen del almacenamiento del navegador.
 
 ## Publicación
 
-GitHub Pages sirve la raíz de la rama `main`. Ejecuta `npm run build` para generar una copia estática en `dist/`. Las rutas relativas permiten jugar bajo `/Lab/`. El juego de granja anterior se conserva en `archive/farm`.
+GitHub Pages sirve la raíz de `main`. Las rutas relativas funcionan bajo `/Lab/`. El juego de granja anterior se conserva en `archive/farm` y el primer Wordle en `archive/wordle`.
